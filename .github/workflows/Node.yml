@@ -1,19 +1,28 @@
 name: Node Js compile
 on: workflow_dispatch
 jobs:
-  nodejob:
+  nodejob1:
     runs-on: ubuntu-latest
     steps:
-       - name: clone the repo
-         uses: actions/checkout@v4
-       - name: install dependencies
-         run: npm ci
-       - name: Test the code
-         run: npm run test 
-       - name: upload the artifacts
-         uses: actions/upload-artifact@v4
-         with:
-           name: test-report
-           path: test.jason
-    
+     - name: clone the repo 
+       uses: actions/checkout@v4
+     - name: install dependencies 
+       run: npm ci
+     - name: lint
+       run: npm run lint 
+  nodejob2:
+    runs-on: ubuntu-latest
+    steps:
+     - name: clone the repo
+       uses: actions/checkout@v4
+     - name: install dependencies
+       run: npm ci
+     - name: Test the code
+       run: npm run test 
+     - name: upload the artifacts
+       uses: actions/upload-artifact@v4
+       with:
+         name: test-report
+         path: test.jason
   
+
