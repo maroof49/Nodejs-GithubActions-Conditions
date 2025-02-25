@@ -23,6 +23,6 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
          name: test-report
-         path: test.jason
+         path: test.json
   
 
