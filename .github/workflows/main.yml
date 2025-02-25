@@ -1,8 +1,7 @@
 name: nodejs App Build 
 on: 
- push:
-  branches:
-   - master
+ #- push
+ - workflow_dispatch
 jobs:
  build-job:
   continue-on-error: true
