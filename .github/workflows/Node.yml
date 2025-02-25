@@ -1,0 +1,14 @@
+name: Node Js compile
+on: workflow_dispatch
+jobs:
+  nodejob:
+    runs-on: ubuntu-latest
+    steps:
+       - name: clone the repo
+         uses: actions/checkout@v4
+       - name: install dependencies
+         run: npm ci
+       - name: Test Code
+         run: npm run test 
+    
+  
