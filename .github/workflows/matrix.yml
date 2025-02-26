@@ -1,0 +1,19 @@
+name: Matrix Testing
+on: workflow_dispatch
+jobs:
+  Matrix-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the current repo
+        uses: actions/checkout@v4
+      - name: install nodeJS
+        uses: actions/setuop-node@v3
+      - name: install the npm depemdemcy
+        run: npm ci
+      - name: npm Test Code
+        run: npm run test
+      - name: upload the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-test-reports
+          path: test.json
