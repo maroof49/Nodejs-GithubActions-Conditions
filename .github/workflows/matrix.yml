@@ -2,12 +2,22 @@ name: Matrix Testing
 on: workflow_dispatch
 jobs:
   Matrix-Job:
-    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        node-version: [12,14,16]
+        operating_system: [ubuntu-latest,windows-latest]
+        exclude:
+          - node-version: 12
+            operating_system: windows-latest
+    runs-on: ${{matrix.operating_system}}
     steps:
       - name: clone the current repo
         uses: actions/checkout@v4
       - name: install nodeJS
         uses: actions/setup-node@v3
+        with: 
+          node-version: ${{matrix.node-version}}
       - name: install the npm depemdemcy
         run: npm ci
       - name: npm Test Code
