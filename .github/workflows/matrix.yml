@@ -7,7 +7,7 @@ jobs:
       - name: clone the current repo
         uses: actions/checkout@v4
       - name: install nodeJS
-        uses: actions/setuop-node@v3
+        uses: actions/setup-node@v3
       - name: install the npm depemdemcy
         run: npm ci
       - name: npm Test Code
